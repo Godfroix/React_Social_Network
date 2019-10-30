@@ -1,0 +1,29 @@
+.title {
+  margin-left: 10px;
+  color: #0F4351;
+}
+.create {
+  margin-bottom: 30px;
+}
+.area {
+  width: 400px;
+  height: 100px;
+  margin: 0 10px;
+}
+.btn {
+  padding: 5px 20px;
+  cursor: pointer;
+  background-color: #0F4351;
+  border: solid #0F4351 2px;
+  border-radius: 20px;
+  color: #fff;
+  margin: 5px 10px;
+}
+.btn:hover {
+  color: #0F4351;
+  background-color: #d5dfe2;
+  border-color: #0f4351;
+}
+.posts {
+  margin: 10px;
+}

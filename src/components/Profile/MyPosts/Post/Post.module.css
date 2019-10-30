@@ -1,0 +1,17 @@
+.item{
+  /* color: #22667B; */
+  color: #000;
+  margin: 10px 10px 30px 10px;
+}
+.item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.likes {
+  color: #0F4351;
+}
+/* .likesCount {
+  color: #ff6161;
+} */
