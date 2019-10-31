@@ -1,25 +1,25 @@
 import React from 'react';
-import Navbarcss from './Navbar.module.css';
+import navbarCss from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = (props) => {
     return (
-        <nav className={Navbarcss.nav}>
-            <div className={Navbarcss.item}>
-                <NavLink to='/profile' activeClassName={Navbarcss.active} >Profile</NavLink>
+        <nav className={navbarCss.nav}>
+            <div className={navbarCss.item}>
+                <NavLink to='/profile' activeClassName={navbarCss.active} >Profile</NavLink>
             </div>
-            <div className={Navbarcss.item}>
-                <NavLink to='/dialogs' activeClassName={Navbarcss.active}>Dialogs</NavLink>
+            <div className={navbarCss.item}>
+                <NavLink to='/dialogs' activeClassName={navbarCss.active}>Dialogs</NavLink>
             </div>
-            <div className={Navbarcss.item}>
-                <NavLink to='/news' activeClassName={Navbarcss.active}>News</NavLink>
+            <div className={navbarCss.item}>
+                <NavLink to='/news' activeClassName={navbarCss.active}>News</NavLink>
             </div>
-            <div className={Navbarcss.item}>
-                <NavLink to='/music' activeClassName={Navbarcss.active}>Music</NavLink>
+            <div className={navbarCss.item}>
+                <NavLink to='/music' activeClassName={navbarCss.active}>Music</NavLink>
             </div>
         </nav >
     )
 }
 export default Navbar;
 
-{/* <div className={`${Navbarcss.item} ${Navbarcss.active}`}></div> */ }
+{/* <div className={`${Navbarcss.item} ${navbarCss.active}`}></div> */ }

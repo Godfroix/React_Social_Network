@@ -1,29 +1,26 @@
 import React from 'react';
-import MyPostscss from './MyPosts.module.css';
+import myPostsCss from './MyPosts.module.css';
 import Post from './Post/Post';
+// import { posts } from './../../../static/state'
 
 const MyPosts = (props) => {
 
-    let PostData = [
-        { id: 1, message: 'Ya verulsya iz nebitiya', likesCount: 20 },
-        { id: 2, message: 'Hi zyabls', likesCount: 120 },
-    ]
+    let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} id={p.id} />)
 
     return (
         <div>
-            <h3 className={MyPostscss.title}>My Posts</h3>
-            <div className={MyPostscss.create}>
+            <h3 className={myPostsCss.title}>My Posts</h3>
+            <div className={myPostsCss.create}>
                 <div>
-                    <textarea className={MyPostscss.area}></textarea>
+                    <textarea className={myPostsCss.area}></textarea>
                 </div>
                 <div>
-                    <button className={MyPostscss.btn}>Add post</button>
-                    <button className={MyPostscss.btn}>Remove</button>
+                    <button className={myPostsCss.btn}>Add post</button>
+                    <button className={myPostsCss.btn}>Remove</button>
                 </div>
             </div>
-            <div className={MyPostscss.posts}>
-                <Post message={PostData[0].message} likesCount={PostData[0].likesCount} id={PostData[0].id} />
-                <Post message={PostData[1].message} likesCount={PostData[1].likesCount} id={PostData[1].id} />
+            <div className={myPostsCss.posts}>
+                {postsElements}
             </div>
         </div>
 

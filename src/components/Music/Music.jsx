@@ -1,5 +1,5 @@
 import React from 'react';
-import Musiccss from './Music.module.css';
+import musicCss from './Music.module.css';
 
 
 const Music = (props) => {
