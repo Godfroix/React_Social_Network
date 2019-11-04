@@ -19,3 +19,22 @@
 .messages .message {
     color: #000;
 }
+.area {
+    width: 400px;
+    height: 100px;
+    margin: 50px 10px 0px 10px;
+  }
+  .btn {
+    padding: 5px 20px;
+    cursor: pointer;
+    background-color: #0F4351;
+    border: solid #0F4351 2px;
+    border-radius: 20px;
+    color: #fff;
+    margin: 5px 10px 30px 10px;
+  }
+  .btn:hover {
+    color: #0F4351;
+    background-color: #d5dfe2;
+    border-color: #0f4351;
+  }
