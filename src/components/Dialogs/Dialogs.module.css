@@ -22,7 +22,7 @@
 .area {
     width: 400px;
     height: 100px;
-    margin: 50px 10px 0px 10px;
+    margin: 50px 10px 0px 0px;
   }
   .btn {
     padding: 5px 20px;
@@ -31,7 +31,7 @@
     border: solid #0F4351 2px;
     border-radius: 20px;
     color: #fff;
-    margin: 5px 10px 30px 10px;
+    margin: 5px 10px 30px 0px;
   }
   .btn:hover {
     color: #0F4351;

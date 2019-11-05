@@ -1,7 +1,7 @@
 import React from 'react';
 import myPostsCss from './MyPosts.module.css';
 import Post from './Post/Post';
-import { addNewPostTextActionCreator, addPostActionCreator } from '../../../static/state';
+import { addNewPostTextActionCreator, addPostActionCreator } from '../../../static/profile_reducer';
 
 const MyPosts = (props) => {
     let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} id={p.id} />)
