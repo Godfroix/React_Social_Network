@@ -11,8 +11,6 @@ const Dialogs = (props) => {
 
     let messagesElements = props.state.messages.map(m => <Message message={m.message} id={m.id} />)
 
-    // let newMessageElement = React.createRef();
-
     let addMessage = () => {
         props.dispatch(addMessageActionCreator());
     }
@@ -21,11 +19,6 @@ const Dialogs = (props) => {
         let action = addNewMessageTextActionCreator(text);
         props.dispatch(action);
     }
-    // let onMessageChange = () => {
-    //     let text = newMessageElement.current.value;
-    //     let action = addNewMessageTextActionCreator(text);
-    //     props.dispatch(action);
-    // }
 
     return (
         <div className={dialogsCss.dialogs}>
@@ -40,7 +33,6 @@ const Dialogs = (props) => {
                     <div className={dialogsCss.create}>
                         <div>
                             <textarea placeholder='Enter your message' onChange={onMessageChange} value={props.state.newMessageText} className={dialogsCss.area}></textarea>
-                            {/* ref={newMessageElement} */}
                         </div>
                         <div>
                             <button onClick={addMessage} className={dialogsCss.btn}>Add message</button>
