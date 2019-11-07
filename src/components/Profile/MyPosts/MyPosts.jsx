@@ -19,7 +19,7 @@ const MyPosts = (props) => {
             <h3 className={myPostsCss.title}>My Posts</h3>
             <div className={myPostsCss.create}>
                 <div>
-                    <textarea onChange={onPostChange} value={props.newPostText} className={myPostsCss.area}></textarea>
+                    <textarea onChange={onPostChange} value={props.newPostText} className={myPostsCss.area} placeholder='Enter your text'></textarea>
                 </div>
                 <div>
                     <button onClick={onAddPost} className={myPostsCss.btn}>Add post</button>
