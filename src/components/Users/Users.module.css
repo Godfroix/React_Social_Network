@@ -1,0 +1,101 @@
+.user {
+    width: 800px;
+    display: grid;
+
+  grid-template-areas: 
+  "avaBtn info"
+  "avaBtn p";
+
+  grid-template-rows: 100px 40px;
+  grid-template-columns: 1fr 5fr;
+  grid-gap: 10px;
+
+  margin: 10px;
+}
+.avaBtn {
+    width: 140px;
+    grid-area: avaBtn;
+    text-align: center;
+}
+.info {
+    grid-area: info;
+    display: grid;
+
+  grid-template-areas: 
+  "nameStatus countrySity";
+
+  grid-template-rows: 1fr;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 10px;
+
+  border: solid #92cbdb 2px;
+  border-radius: 20px;
+}
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 10px;
+    grid-area: ava;
+}
+.btn {
+    width: 110px;
+    padding: 5px 30px;
+    cursor: pointer;
+    background-color: #0F4351;
+    border: solid #0F4351 2px;
+    border-radius: 20px;
+    color: #fff;
+    margin: 5px 10px;
+    grid-area: btn;
+}
+/* .btn:hover {
+    color: #0F4351;
+    background-color: #d5dfe2;
+    border-color: #92cbdb;
+} */
+.btnun {
+    width: 110px;
+    padding: 5px 30px;
+    cursor: pointer;
+    background-color: #d5dfe2;
+    border: solid #92cbdb 2px;
+    border-radius: 20px;
+    color: #0F4351;
+    margin: 5px 10px;
+    grid-area: btn;
+}
+/* .btnun:hover {
+    color: #fff;
+    background-color: #0F4351;
+    border-color: #0F4351;
+} */
+.nameStatus {
+    padding: 10px 20px;
+}
+.name {
+    grid-area: name;
+    font-weight: 700;
+    color: #0F4351;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+.status {
+    grid-area: status;
+    font-size: 16px;
+    color: #4d4d4d;
+}
+.countryCity {
+    padding: 10px 20px;
+}
+.country {
+    grid-area: country;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.city {
+    grid-area: city;
+}
+
+
+
