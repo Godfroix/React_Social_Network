@@ -1,3 +1,17 @@
+.usersBtn {
+    padding: 5px 30px;
+    cursor: pointer;
+    background-color: #0F4351;
+    border: solid #0F4351 2px;
+    border-radius: 20px;
+    color: #fff;
+    margin: 10px 10px;
+}
+.usersBtn:hover {
+    color: #0F4351;
+    background-color: #d5dfe2;
+    border-color: #92cbdb;
+}
 .user {
     width: 800px;
     display: grid;
