@@ -3,6 +3,8 @@ import Users from "../components/Users/Users";
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
+const SET_СURRENT_PAGE = 'SET-СURRENT-PAGE';
+const SET_TOTAL_USERS_COUNT = 'SET-TOTAL-USERS-COUNT';
 
 let initialState = {
     users:
@@ -48,7 +50,9 @@ let initialState = {
             //     location: { city: 'Nizhnii-Novgorod', country: 'Russia' }
             // },
         ],
-
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -72,13 +76,25 @@ const usersReducer = (state = initialState, action) => {
                 }
                 return user;
             })
-        };
+        }
     }
     else if (action.type === SET_USERS) {
         return {
             ...state,
-            users: [...state.users, ...action.users],
+            users: action.users,
         };
+    }
+    else if (action.type === SET_СURRENT_PAGE) {
+        return {
+            ...state,
+            currentPage: action.currentPage
+        }
+    }
+    else if (action.type === SET_TOTAL_USERS_COUNT) {
+        return {
+            ...state,
+            totalUsersCount: action.count
+        }
     }
     return state;
 }
@@ -88,5 +104,9 @@ export const followAC = (userId) => ({ type: FOLLOW, userId })
 export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId })
 
 export const setUsersAC = (users) => ({ type: SET_USERS, users })
+
+export const setCurrentPageAC = (currentPage) => ({ type: SET_СURRENT_PAGE, currentPage })
+
+export const setTotalCountAC = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, count: totalUsersCount })
 
 export default usersReducer;
