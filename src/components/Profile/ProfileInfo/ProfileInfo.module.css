@@ -1,12 +1,41 @@
 .profileInfo {
-    margin-bottom: 50px; 
+    margin-bottom: 50px;
 }
 .img img {
     width: 100%;
     margin-bottom: 10px;
 }
-.descriptionBlock img {
-    width: 200px;
-    height: 200px;
+.descriptionBlock {
     margin: 10px;
+
+    display: grid;
+
+    grid-template-areas:
+    "ava fullname"
+    "ava status"
+    "ava contacts";
+  
+    grid-template-rows: 1fr 1fr 4fr;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 10px; 
+}
+.ava {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 10px;
+    grid-area: ava;
+}
+.fullName {
+    margin-bottom: 10px;
+    font-weight: 700;
+    grid-area: fullname;
+}
+.aboutMe {
+    margin-bottom: 10px;
+    grid-area: status;
+    font-style: oblique ;
+    color: #0F4351;
+}
+.contacts {
+    grid-area: contacts;
 }
