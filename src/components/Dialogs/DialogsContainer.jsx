@@ -4,32 +4,11 @@ import { updateNewMessageTextCreator, sendMessageCreator } from '../../static/di
 // import StoreContext from '../../storeContext';
 import { connect } from 'react-redux';
 
-// const DialogsContainer = () => {
-
-//     return (
-//         <StoreContext.Consumer>
-//             {
-//                 (store) => {
-//                     let state = store.getState().dialogsPage;
-
-//                     let onSendMessageClick = () => {
-//                         store.dispatch(sendMessageCreator());
-//                     }
-
-//                     let onMessageChange = (text) => {
-//                         let action = updateNewMessageTextCreator(text);
-//                         store.dispatch(action);
-//                     }
-//                     return <Dialogs updateNewMessageCreator={onMessageChange} sendMessage={onSendMessageClick} dialogsPage={state} />
-//                 }
-//             }
-//         </StoreContext.Consumer>
-//     )
-// }
 
 let mapStateToProps = (state) => {
     return {
-        dialogsPage: state.dialogsPage
+        dialogsPage: state.dialogsPage,
+        isAuth: state.auth.isAuth
     }
 }
 

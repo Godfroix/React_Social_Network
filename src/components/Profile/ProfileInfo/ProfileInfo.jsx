@@ -16,9 +16,7 @@ const ProfileInfo = (props) => {
                     <img src='https://geniusmarketing.me/wp-content/uploads/2017/08/header-2.jpg' />
                 </div>
                 <div className={profileInfoCss.descriptionBlock}>
-                    <div className={profileInfoCss.ava}>
-                        <img src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto} />
-                    </div>
+                    <img src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto} className={profileInfoCss.ava} />
                     <div className={profileInfoCss.fullName}>
                         {props.profile.fullName}
                     </div>

@@ -1,3 +1,4 @@
+import { usersAPI } from "../api/api";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -5,55 +6,16 @@ const SET_USERS = 'SET-USERS';
 const SET_СURRENT_PAGE = 'SET-СURRENT-PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET-TOTAL-USERS-COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 
 let initialState = {
     users:
-        [
-            // {
-            //     id: 1,
-            //     followed: true,
-            //     photoUrl: 'https://pbs.twimg.com/profile_images/1060286056342474752/FyIwsk1S.jpg',
-            //     fullName: 'Vitalii King',
-            //     status: 'Я вернулся из небытия',
-            //     location: { city: 'Venecia', country: 'Italy' }
-            // },
-            // {
-            //     id: 2,
-            //     followed: true,
-            //     photoUrl: 'https://lh5.googleusercontent.com/-QTUUAiSPNHA/AAAAAAAAAAI/AAAAAAAAAXk/khjvc_3VjUc/photo.jpg?sz=200',
-            //     fullName: 'Valera Gladiator',
-            //     status: 'DA DA DA',
-            //     location: { city: 'Samara', country: 'Russia' }
-            // },
-            // {
-            //     id: 3,
-            //     followed: true,
-            //     photoUrl: 'https://svirtus.cdnvideo.ru/40aqd88rYrAtKYtkWaM3SZlodIo=/0x0:1000x1000/200x200/filters:quality(100)/https://hb.bizmrg.com/esports-core-media/7a/7aa784cd39ed549ddf7602bd183cec0f.jpg?m=0d76aa7dbc5cdb4090eefa58f8cd710c',
-            //     fullName: 'Pukich',
-            //     status: 'Говорите не молчите',
-            //     location: { city: 'Tver', country: 'Russia' }
-            // },
-            // {
-            //     id: 4,
-            //     followed: false,
-            //     photoUrl: 'https://kibercon.ru/wp-content/uploads/2019/04/iner.jpg',
-            //     fullName: 'Guchibass',
-            //     status: 'aaaaaaa',
-            //     location: { city: 'Vinnica', country: 'Ukrain' }
-            // },
-            // {
-            //     id: 5,
-            //     followed: false,
-            //     photoUrl: 'https://www.b17.ru/foto/article/124863.jpg',
-            //     fullName: 'Alexander Borisov',
-            //     status: 'Я спростмен',
-            //     location: { city: 'Nizhnii-Novgorod', country: 'Russia' }
-            // },
-        ],
+        [],
     pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
+    followingInProgress: [],
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -103,19 +65,56 @@ const usersReducer = (state = initialState, action) => {
             isFetching: action.isFetching
         }
     }
+    else if (action.type === TOGGLE_IS_FOLLOWING_PROGRESS) {
+        return {
+            ...state,
+            followingInProgress: action.isFetching ? [...state.followingInProgress, action.userId] : state.followingInProgress.filter(id => id != action.userId)
+        }
+    }
     return state;
 }
 
-export const follow = (userId) => ({ type: FOLLOW, userId })
-
-export const unfollow = (userId) => ({ type: UNFOLLOW, userId })
-
+export const followSuccess = (userId) => ({ type: FOLLOW, userId })
+export const unfollowSuccess = (userId) => ({ type: UNFOLLOW, userId })
 export const setUsers = (users) => ({ type: SET_USERS, users })
-
 export const setCurrentPage = (currentPage) => ({ type: SET_СURRENT_PAGE, currentPage })
-
 export const setTotalUsersCount = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, count: totalUsersCount })
-
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching })
+export const toggleFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId })
+
+export const getUsers = (currentPage, pageSize) => { //это getUsersThunkContainer
+    return (dispatch) => { //это getUsersThunk
+        dispatch(toggleIsFetching(true));
+        usersAPI.getUsers(currentPage, pageSize).then(data => {
+            dispatch(toggleIsFetching(false));
+            dispatch(setUsers(data.items));
+            dispatch(setTotalUsersCount(data.totalCount));
+        });
+    }
+}
+
+export const follow = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleFollowingProgress(true, userId));
+        usersAPI.postFollow(userId).then(data => {
+            if (data.resultCode === 0) {
+                dispatch(follow(userId));
+            }
+            dispatch(toggleFollowingProgress(false, userId));
+        });
+    }
+}
+
+export const unfollow = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleFollowingProgress(true, userId));
+        usersAPI.deleteFollow(userId).then(data => {
+            if (data.resultCode === 0) {
+                dispatch(unfollowSuccess(userId));
+            }
+            dispatch(toggleFollowingProgress(false, userId));
+        });
+    }
+}
 
 export default usersReducer;

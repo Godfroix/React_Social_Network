@@ -2,9 +2,17 @@
     grid-area: head;
     background-color: #0f4351;
   }
-  .header img {
-    margin-left: 20px;
-    margin-top: 7px;
-    width: 45px;
-  }
-
+.header img {
+  margin-left: 20px;
+  margin-top: 7px;
+  width: 45px;
+}
+.loginBlock {
+  float: right;
+  margin: 15px 50px 10px auto;
+  color: #fff;
+}
+.loginBlock a{
+  text-decoration: none;
+  color: #fff;
+}
