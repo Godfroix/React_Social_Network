@@ -1,0 +1,35 @@
+.head {
+    margin: 10px 0px 30px 20px;
+}
+
+.form {
+    margin-left: 20px;
+}
+.login{
+    margin-bottom: 15px;
+    width: 250px;
+    padding: 5px;
+}
+.password{
+    margin-bottom: 15px;
+    width: 250px;
+    padding: 5px;
+}
+.rememberMe{
+    margin-bottom: 20px;
+}
+.loginBtn {
+    padding: 5px 20px;
+    width: 120px;
+    cursor: pointer;
+    background-color: #0F4351;
+    border: solid #0F4351 2px;
+    border-radius: 20px;
+    color: #fff;
+    margin-bottom: 50px;
+  }
+  .loginBtn:hover {
+    color: #0F4351;
+    background-color: #d5dfe2;
+    border-color: #0f4351;
+  }

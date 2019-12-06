@@ -11,12 +11,12 @@
     display: grid;
 
     grid-template-areas:
-    "ava fullname"
-    "ava status"
-    "ava contacts";
+    "ava fullname contacts"
+    "ava status contacts"
+    "ava about contacts";
   
     grid-template-rows: 1fr 1fr 4fr;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 1fr 2fr;
     grid-gap: 10px; 
 }
 .ava {
@@ -32,10 +32,13 @@
 }
 .aboutMe {
     margin-bottom: 10px;
-    grid-area: status;
+    grid-area: about;
     font-style: oblique ;
     color: #0F4351;
 }
 .contacts {
     grid-area: contacts;
+}
+.status {
+    grid-area: status;
 }
