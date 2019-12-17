@@ -1,0 +1,21 @@
+/* .formControl {
+    margin-bottom: 10px;
+} */
+
+.formControl.error input,
+.formControl.error textarea {
+    border: solid #ff5a5a 1px ;
+}
+
+.formControl.error span {
+    margin-top: 5px;
+    color: #ff5a5a;
+}
+.formSummaryError {
+    margin-top: 15px;
+    width: 250px;
+    border: solid #ff5a5a 1px;
+    padding: 5px;
+    color: #ff5a5a;
+}
+

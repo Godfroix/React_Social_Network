@@ -16,3 +16,17 @@
   text-decoration: none;
   color: #fff;
 }
+.btn {
+  padding: 5px 20px;
+  cursor: pointer;
+  background-color: #0F4351;
+  border: solid #d5dfe2 2px;
+  border-radius: 20px;
+  color: #fff;
+  margin: 0px 10px 0px 10px;
+}
+.btn:hover {
+  color: #0F4351;
+  background-color: #d5dfe2;
+  border-color: #0f4351;
+}

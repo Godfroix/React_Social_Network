@@ -1,5 +1,8 @@
-.title {
+.addPosts { 
   margin-left: 10px;
+}
+.title {
+  /* margin-left: 10px; */
   color: #0F4351;
 }
 .create {
@@ -8,7 +11,7 @@
 .area {
   width: 400px;
   height: 100px;
-  margin: 0 10px;
+  /* margin: 0 10px; */
   font-size: 16px;
 }
 .btn {
@@ -18,7 +21,7 @@
   border: solid #0F4351 2px;
   border-radius: 20px;
   color: #fff;
-  margin: 5px 10px;
+  margin: 5px 20px 5px 0px;
 }
 .btn:hover {
   color: #0F4351;
@@ -26,5 +29,5 @@
   border-color: #0f4351;
 }
 .posts {
-  margin: 10px;
+  margin: 10px 10px 10px 0px;
 }
